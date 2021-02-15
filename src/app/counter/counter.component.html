@@ -1,0 +1,19 @@
+<style>
+    button {
+        padding: 10px;
+        cursor: pointer;
+    }
+    span {
+        padding: 10px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+</style>
+
+<div>
+    {{ maxValue }}
+    <button (click)="counterDecrement()" [disabled]="counter < 1">-</button>
+    <span>{{ counter }}</span>
+    <button (click)="counterIncrement()" [disabled]="maxValue != 0 && counter == maxValue">+</button>
+</div>
+
