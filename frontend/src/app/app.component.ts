@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'testapp';
+  title: String = 'testapp';
+  note: number = null;
+
+
+  setNote = (note: any) => {
+    this.note = note;
+  }
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -6,23 +6,27 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./counter.component.sass']
 })
 export class CounterComponent implements OnInit {
-
+  @Output() onFormSubmit = new EventEmitter<any>();
   counter: number = 0;
   @Input() maxValue: number = 0;
 
   constructor() {}
 
   ngOnInit(): void {
-      console.log(this.maxValue)
+      // console.log(this.maxValue)
   }
 
-  counterDecrement(): void {
+  submitForm = (): void => {
+    this.onFormSubmit.emit(this.counter);
+  }
+
+  counterDecrement = (): void => {
      if (this.counter > 0) {
        this.counter--
      }
   }
 
-  counterIncrement(): void {
+  counterIncrement = (): void => {
    this.counter++
   }
 

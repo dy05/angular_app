@@ -294,13 +294,13 @@
 
 <div class="content" role="main">
   <div>
-    <app-counter [maxValue]="4"></app-counter>
-  </div>
-  <div>
-    <app-counter [maxValue]="10"></app-counter>
-  </div>
-  <div>
-    <app-counter [maxValue]="40"></app-counter>
+    <div *ngIf="note == null">
+      Vous n'avez pas encore de note
+    </div>
+    <div *ngIf="note != null">
+      Votre note final est {{ note }}
+    </div>
+    <app-counter [maxValue]="4" (onFormSubmit)="setNote($event)"></app-counter>
   </div>
 </div>
 
