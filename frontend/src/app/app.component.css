@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.page {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgba(200, 200, 200, 0.5);
+  padding: 2rem;
+  min-height: calc(100vh - 2rem);
+}
+
+.menu a {
+  background-color: rgba(50, 150, 200, 0.7);
+  padding: 0.5rem 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.menu a:first-child {
+  margin-left: 0 !important;
+}
+
+.menu a:last-child {
+  margin-right: 0 !important;
+}

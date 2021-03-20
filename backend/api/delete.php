@@ -3,21 +3,19 @@
 require 'database.php';
 
 // Extract, validate and sanitize the id.
-$id = ($_GET['id'] !== null && (int)$_GET['id'] > 0)? mysqli_real_escape_string($con, (int)$_GET['id']) : false;
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-if(!$id)
-{
-  return http_response_code(400);
+$item = getItem($id);
+
+if(!$item) {
+    return http_response_code(400);
 }
 
 // Delete.
 $sql = "DELETE FROM `policies` WHERE `id` ='{$id}' LIMIT 1";
 
-if(mysqli_query($con, $sql))
-{
-  http_response_code(204);
-}
-else
-{
-  return http_response_code(422);
+if(mysqli_query($con, $sql)) {
+    return http_response_code(204);
+} else {
+    return http_response_code(422);
 }

@@ -1,7 +1,10 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE");
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+header("Access-Control-Allow-Methods: *");
+//header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: *");
+//header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization");
+header("Content-Type: application/json");
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
@@ -22,6 +25,18 @@ function connect()
 }
 
 $con = connect();
+
+function getItem ($key, $return = false, $table = 'policies', $idKey = 'id')
+{
+    $con = connect();
+    $sql = "SELECT * FROM $table WHERE $idKey = ".$key;
+    $result = mysqli_query($con, $sql);
+    if (!$return) {
+        return mysqli_num_rows($result);
+    }
+
+    return mysqli_fetch_assoc($result);
+}
 
 
 

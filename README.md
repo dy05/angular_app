@@ -1,6 +1,8 @@
 # Angular Test App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.7.
+Use the code below to execute php server to serve api
+
+`php -S localhost:8080 -t ./backend`
 
 ## Development server
 
