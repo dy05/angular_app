@@ -2,7 +2,7 @@
 
 Use the code below to execute php server to serve api
 
-`php -S localhost:8080 -t ./backend`
+`php -S 127.0.0.1:8080 -t ./backend`
 
 ## Development server
 
